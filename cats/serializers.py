@@ -1,3 +1,4 @@
+# admin облиг21
 import datetime as dt
 import webcolors
 from rest_framework import serializers
@@ -82,3 +83,11 @@ class OwnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Owner
         fields = ('first_name', 'last_name', 'cats')
+
+
+class CatListSerializer(serializers.ModelSerializer):
+    color = serializers.ChoiceField(choices=CHOICES)
+
+    class Meta:
+        model = Cat
+        fields = ('id', 'name', 'color')
